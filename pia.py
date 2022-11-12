@@ -435,7 +435,8 @@ while True:
                     try:
                         with sqlite3.connect("pia.db") as conn_reservas_consultas:
                             mi_cursor = conn_reservas_consultas.cursor()
-                            mi_cursor.execute("SELECT fecha, id_sala, id_turno FROM reservas")
+                            seleccionar_fecha = fecha_para_ver_disponibles.strftime("%d/%m/%Y"),
+                            mi_cursor.execute("SELECT id_sala, id_turno FROM reservas WHERE fecha=?", seleccionar_fecha)
                             registros_reservas_consultas = mi_cursor.fetchall()
                         conn_reservas_consultas.close()     
                     except Error as e:
@@ -443,8 +444,7 @@ while True:
                     except Exception:
                         print(f"Se produjo el siguiente error: {sys.exc_info()[0]}")
 
-                    for fecha, sala, turno in registros_reservas_consultas:
-                        if fecha == fecha_para_ver_disponibles_capturada:
+                    for sala, turno in registros_reservas_consultas:
                             listas_ocupadas.append((sala, turno))
                     
                     reservas_ocupadas = set(listas_ocupadas)
@@ -467,7 +467,7 @@ while True:
                     for id_sala, id_turno in reservaciones_disponibles:
                         nombre_sala = select_salas_por_id(id_sala)
                         nombre_turno = select_turnos_por_id(id_turno)
-                        print(f"{id_sala},{nombre_sala:<20}{nombre_turno:>20}")
+                        print(f"{id_sala},{nombre_sala[0][0]:<20}{nombre_turno[0][0]:>20}")
                     break
             elif opcion_menu_reservas.upper() == "D":
                 ciclo_confirmacion = False
