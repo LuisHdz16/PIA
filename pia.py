@@ -264,7 +264,7 @@ while True:
 
                     fecha_actual = datetime.date.today()
 
-                    fecha_reservacion_capturada = input("\nEscribe la fecha de reservación que desea con el formato (dd/mm/aaaa): ")
+                    fecha_reservacion_capturada = input("\nIngrese la fecha de reservación que desea con el formato (dd/mm/aaaa): ")
 
                     if fecha_reservacion_capturada.strip() == "":
                         print("\nLa fecha no puede omitirse. Intente de nuevo.")
