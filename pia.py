@@ -206,7 +206,7 @@ while True:
                         print(f"{clave}\t\t{nombre}")
                     print("-" * 40)
 
-                    reserva_clave_del_cliente_capturada = input("\nIngresa la clave del cliente: ")
+                    reserva_clave_del_cliente_capturada = input("\nIngrese la clave del cliente: ")
 
                     if reserva_clave_del_cliente_capturada.strip() == "":
                         print("\nLa clave del cliente no puede omitirse. Intente de nuevo.")
@@ -224,14 +224,14 @@ while True:
                         print(f"\nCliente {clientes_registros_por_id[0][0]} puede continuar con la resevación.")
                         break
                     else:
-                        print("\nNo se encontró la clave del cliente.")
+                        print("\nNo se encontró la clave del cliente. Intente de nuevo.")
                         continue
 
                 while True:
                     
                     registros_salas = select_salas()
                     
-                    print(f"\n{'Salas registrados':^40}")
+                    print(f"\n{'Salas registradas':^40}")
                     print("-" * 40)
                     print(f"{'Clave':<10}{'Nombre':<25}{'Cupo'}")
                     print("-" * 40)
@@ -239,7 +239,7 @@ while True:
                         print(f"{clave:<10}{nombre:<25}{cupo}")
                     print("-" * 40)
 
-                    clave_de_sala_reservas_capturada = input("\nIngresa el número de sala: ")
+                    clave_de_sala_reservas_capturada = input("\nIngrese el número de sala: ")
 
                     if clave_de_sala_reservas_capturada.strip() == "":
                         print("\nEl número de sala no puede omitirse. Intente de nuevo.")
@@ -257,7 +257,7 @@ while True:
                         print(f"\nSala {registros_salas_por_id[0][0]} seleccionada.")
                         break
                     else:
-                        print("\nNo se encontró el numero de la sala.")
+                        print("\nNo se encontró el numero de la sala. Intente de nuevo.")
                         continue
 
                 while True:
@@ -273,7 +273,7 @@ while True:
                     fecha_reservacion = puede_ser_tipo_fecha(fecha_reservacion_capturada)
 
                     if fecha_reservacion == False:
-                        print("\nEl dato proporcionado no es de tipo de fecha. Intente de nuevo.")
+                        print("\nEl dato proporcionado no es de tipo de fecha correcta. Intente de nuevo.")
                         continue
 
                     resta_fecha = fecha_reservacion - fecha_actual
@@ -317,7 +317,7 @@ while True:
                         print(f"\nTurno {registros_turnos_por_id[0][0]} seleccionada.")
                         break
                     else:
-                        print("\nNo se encontró la clave del turno.")
+                        print("\nNo se encontró la clave del turno. Intente de nuevo.")
                         continue
                 
                 while True:
@@ -326,7 +326,7 @@ while True:
                     
                     for folio, fecha, id_cliente, id_sala, nombre_evento ,id_turno in registros_reservas:
                         if fecha_reservacion.strftime("%d/%m/%Y") == fecha and clave_de_sala_reservas == id_sala and turno_reservacion == id_turno:
-                            print(f"\nEstá ocupada esa sala y turno en la fecha {fecha_reservacion_capturada}.")
+                            print(f"\nSala y turno ocupados en la fecha proporcionada. Intente de nuevo.")
                             break
                         else:
                             continue
@@ -337,7 +337,7 @@ while True:
                             nombre_evento = input("\nIngrese el nombre del evento: ")
 
                             if nombre_evento.strip() == "":
-                                print("\nEl nombre no puede omitirse. Intente de nuevo.")
+                                print("\nEl nombre del evento no puede omitirse. Intente de nuevo.")
                                 continue
 
                             break
@@ -346,7 +346,7 @@ while True:
                                 mi_cursor = conn_reservas.cursor()
                                 insert_reservas = (fecha_reservacion.strftime("%d/%m/%Y"), reserva_clave_del_cliente, clave_de_sala_reservas, nombre_evento, turno_reservacion)
                                 mi_cursor.execute("INSERT INTO reservas (fecha, id_cliente, id_sala, nombre_evento, id_turno) VALUES (?,?,?,?,?)", insert_reservas)
-                                print("\nReservacion completada correctamente.")
+                                print("\nReservación completada correctamente.")
                             conn_reservas.close()      
                         except Error as e:
                             print (e)
@@ -364,7 +364,7 @@ while True:
                             registros_modificar_nombre = mi_cursor.fetchall()
                             print(f"\n{'Modificar nombre':^50}")
                             print("-" * 50)
-                            print(f"{'Folio':<10}{'Nombre evento'}")
+                            print(f"{'Folio':<10}{'Nombre del evento'}")
                             print("-" * 50)
                             for folio, nombre_evento in registros_modificar_nombre:
                                 print(f"{folio:<10}{nombre_evento}")
@@ -375,7 +375,7 @@ while True:
                     except Exception:
                         print(f"Se produjo el siguiente error: {sys.exc_info()[0]}")
                     
-                    folio_editar_nombre = input("\nIngresa el folio de la reservación que quiere editar el nombre: ")
+                    folio_editar_nombre = input("\nIngrese el folio de la reservación que quiere editar el nombre: ")
 
                     if folio_editar_nombre.strip() == "":
                         print("\nEl folio no puede omitirse. Intente de nuevo.")
@@ -393,7 +393,7 @@ while True:
                                 nombre_actualizado = input("\nIngrese el nuevo nombre del evento: ")
 
                                 if nombre_actualizado.strip() == "":
-                                    print("\nNo puede omitirse. Intente de nuevo.")
+                                    print("\nEl nuevo nombre del evento no puede omitirse. Intente de nuevo.")
                                     continue
                                 break
                             try:
@@ -401,7 +401,7 @@ while True:
                                     mi_cursor = conn_modificado_nombre.cursor()
                                     actualizacion_nombre = (nombre_actualizado,folio_editar_nombre_int)
                                     mi_cursor.execute("UPDATE reservas SET nombre_evento=? WHERE folio=?", actualizacion_nombre)
-                                    print("\nNombre del evento editado.")
+                                    print("\nNombre del evento editado correctamente.")
                                     break    
                             except Error as e:
                                 print (e)
@@ -420,7 +420,7 @@ while True:
                     listas_ocupadas = list()
                     lista_posibles = list()
 
-                    fecha_para_ver_disponibles_capturada = input("\nIngrese la fecha donde quiera ver la disponibilidad: ")
+                    fecha_para_ver_disponibles_capturada = input("\nIngrese la fecha donde desea ver la disponibilidad dd/mm/aaaa: ")
 
                     if fecha_para_ver_disponibles_capturada.strip() == "":
                         print("\nLa fecha no puede omitise. Intente de nuevo.")
@@ -429,7 +429,7 @@ while True:
                     fecha_para_ver_disponibles = puede_ser_tipo_fecha(fecha_para_ver_disponibles_capturada)
                     
                     if fecha_para_ver_disponibles == False:
-                        print("\nNo es de tipo de fecha. Intente de nuevo.")
+                        print("\nNo es de tipo de fecha correcta. Intente de nuevo.")
                         continue
 
                     try:
@@ -473,16 +473,16 @@ while True:
                 ciclo_confirmacion = False
                 while True:
 
-                    folio_para_eliminar_capturada = input("\nEscribe el folio de la reservacion que quiera eliminar: ")
+                    folio_para_eliminar_capturada = input("\nIngrese el folio de la reservación que desea eliminar: ")
 
                     if folio_para_eliminar_capturada.strip() == "":
-                        print("\nNo puede omitirse. Intente de nuevo.")
+                        print("\nEl folio no puede omitirse. Intente de nuevo.")
                         continue
 
                     folio_para_eliminar = puede_ser_int(folio_para_eliminar_capturada)
 
                     if folio_para_eliminar == False:
-                        print("\nEl dato no es de tipo entero. Intente de nuevo.")
+                        print("\nEl dato proporcionado no es de tipo entero. Intente de nuevo.")
                         continue
                     
                     registros_reservas = select_reservas_por_id(folio_para_eliminar)
@@ -497,10 +497,10 @@ while True:
                         fecha_procesada = datetime.datetime.strptime(fecha, "%d/%m/%Y").date()
                         resta_fecha = fecha_procesada - fecha_de_hoy
                         if resta_fecha.days < 3:
-                            print("\nNo se puede eliminar la reservacion. Debe ser 3 dias de anticipación para la eliminación.")
+                            print("\nReservación no eliminada, ya que se debe hacer con 3 dias de anticipación.")
                             break
                         else:
-                            print(f"\n{'Datos del folio':^60}")
+                            print(f"\n{'Datos del folio proporcionado':^60}")
                             print("*" * 60)
                             print(f"Fecha: {fecha_procesada.strftime('%d/%m/%Y')}")
                             print(f"No. de sala: {id_sala}")
@@ -514,7 +514,7 @@ while True:
 
                 while ciclo_confirmacion:
 
-                    eliminacion_de_reserva = input("Confirmacion de la eliminacion(S/N): ")
+                    eliminacion_de_reserva = input("Confirmación de la eliminacion(S/N): ")
 
                     if eliminacion_de_reserva.strip() == "":
                         print("\nNo puede omitirse. Intente de nuevo.")
@@ -526,7 +526,7 @@ while True:
                                 mi_cursor = conn_reservas.cursor()
                                 folio_eliminado = folio_para_eliminar,
                                 mi_cursor.execute("DELETE FROM reservas WHERE folio=?", folio_eliminado)
-                                print("\nEliminacion de reserva realizada correctamente.")     
+                                print("\nEliminación de reserva realizada correctamente.")     
                         except Error as e:
                             print (e)
                         except Exception:
@@ -536,7 +536,7 @@ while True:
                         print("\nReserva no borrada.")
                         break
                     else:
-                        print("\nNo es correcto lo que proporciono. Escriba S si es si o N si es no.\n")
+                        print("\nNo es correcto lo que proporciono. Ingrese S si es si o N si es no.\n")
                         continue
 
             elif opcion_menu_reservas.upper() == "E":
@@ -654,7 +654,7 @@ while True:
         print("*" * 10 + "REGISTRO DE CLIENTES" + "*" * 10)
         while True:
 
-            cliente_nombre = input("\nIngresa el nombre del cliente: ")
+            cliente_nombre = input("\nIngrese el nombre del cliente: ")
 
             if cliente_nombre.strip() == "":
                 print("\nEl nombre del cliente no se puede omitir. Intente de nuevo.")
