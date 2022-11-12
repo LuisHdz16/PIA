@@ -57,7 +57,7 @@ def select_salas_por_id(salas_id):
     except Exception:
         print(f"Se produjo el siguiente error: {sys.exc_info()[0]}")
 
-def select_tunos():
+def select_turnos():
     try:
         with sqlite3.connect("pia.db")as conn_turnos_select:
             mi_cursor = conn_turnos_select.cursor()
@@ -450,11 +450,11 @@ while True:
                     reservas_ocupadas = set(listas_ocupadas)
 
                     
-                    registros_turnos = select_tunos()
+                    registros_turnos = select_turnos()
                     registros_salas = select_salas()
                         
 
-                    for id, sala in registros_salas:
+                    for id, sala, cupo in registros_salas:
                         for id_, turno in registros_turnos:
                             lista_posibles.append((id, id_))
                 
