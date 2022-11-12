@@ -514,12 +514,9 @@ while True:
                     for folio, fecha, id_cliente, id_sala, nombre_evento ,id_turno in registros_reservas:
                         fecha_procesada = datetime.datetime.strptime(fecha, "%d/%m/%Y").date()
                         resta_fecha = fecha_procesada - fecha_de_hoy
-                        if resta_fecha.days < 3 and resta_fecha.days >= 0:
+                        if resta_fecha.days < 3:
                             print("\nReservación no eliminada, ya que se debe hacer con 3 dias de anticipación.")
                             break
-                        elif resta_fecha.days < 0:
-                            print("\nEsa fecha ya pasó.")
-                            continue
                         else:
                             print(f"\n{'Datos del folio proporcionado':^60}")
                             print("*" * 60)
@@ -588,7 +585,7 @@ while True:
                     fecha_a_consultar_capturada = input("\nIngrese la fecha que desea consultar si hay reservaciones: ")
 
                     if fecha_a_consultar_capturada.strip() == "":
-                        print("\nNo se puede omitir la fecha.")
+                        print("\nNo se puede omitir la fecha. Intente de nuevo.")
                         continue
                     
                     fecha_a_consultar = puede_ser_tipo_fecha(fecha_a_consultar_capturada)
