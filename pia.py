@@ -289,7 +289,7 @@ while True:
 
                 while True:
 
-                    registros_turnos = select_tunos()
+                    registros_turnos = select_turnos()
                     
                     print(f"\n{'Turnos posibles':^40}")
                     print("-" * 40)
@@ -473,6 +473,24 @@ while True:
                 ciclo_confirmacion = False
                 while True:
 
+                    try:
+                        with sqlite3.connect("pia.db")as conn_modificar_nombre:
+                            mi_cursor = conn_modificar_nombre.cursor()
+                            mi_cursor.execute("SELECT folio, nombre_evento FROM reservas")
+                            registros_modificar_nombre = mi_cursor.fetchall()
+                            print(f"\n{'Resevaciones registradas':^50}")
+                            print("-" * 50)
+                            print(f"{'Folio':<10}{'Nombre del evento'}")
+                            print("-" * 50)
+                            for folio, nombre_evento in registros_modificar_nombre:
+                                print(f"{folio:<10}{nombre_evento}")
+                            print("-" * 50)
+                        conn_modificar_nombre.close()      
+                    except Error as e:
+                        print (e)
+                    except Exception:
+                        print(f"Se produjo el siguiente error: {sys.exc_info()[0]}")
+
                     folio_para_eliminar_capturada = input("\nIngrese el folio de la reservación que desea eliminar: ")
 
                     if folio_para_eliminar_capturada.strip() == "":
@@ -514,7 +532,7 @@ while True:
 
                 while ciclo_confirmacion:
 
-                    eliminacion_de_reserva = input("Confirmación de la eliminacion(S/N): ")
+                    eliminacion_de_reserva = input("Confirmación de la eliminación(S/N): ")
 
                     if eliminacion_de_reserva.strip() == "":
                         print("\nNo puede omitirse. Intente de nuevo.")
@@ -564,7 +582,7 @@ while True:
 
                     registros_reservas = select_reservas()
 
-                    fecha_a_consultar_capturada = input("\nFecha que desea consultar si hay reservaciones: ")
+                    fecha_a_consultar_capturada = input("\nIngrese la fecha que desea consultar si hay reservaciones: ")
 
                     if fecha_a_consultar_capturada.strip() == "":
                         print("\nNo se puede omitir la fecha.")
