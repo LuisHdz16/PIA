@@ -9,7 +9,11 @@ class Departamento(models.Model):
     numero_empleados = models.IntegerField()
 
     def __str__(self):
-        return self.nombre
+        return self.nombre_departamento
+        return self.jefe_departamento
+        return self.ubicacion_departamento
+        return self.telefono_departamento
+        return self.numero_empleados
 
 class Sucursal(models.Model):
     nombre_sucursal = models.CharField(max_length=50)
@@ -19,7 +23,11 @@ class Sucursal(models.Model):
     horario_atencion = models.DateField()
 
     def __str__(self):
-        return self.nombre
+        return self.nombre_sucursal
+        return self.responsable_sucursal
+        return self.ubicacion_sucursal
+        return self.telefono_sucursal
+        return self.horario_atencion
 
 class Medico(models.Model):
     nombre_medico = models.CharField(max_length=50)
@@ -29,7 +37,11 @@ class Medico(models.Model):
     correo_electronico = models.CharField(max_length=150)
 
     def __str__(self):
-        return self.nombre
+        return self.nombre_medico
+        return self.especialidad_medico
+        return self.fecha_nacimiento
+        return self.años_experiencia
+        return self.correo_electronico
 
 class Ambulancia(models.Model):
     modelo = models.CharField(max_length=50)
@@ -39,4 +51,8 @@ class Ambulancia(models.Model):
     cantidad = models.IntegerField()
 
     def __str__(self):
-        return self.nombre
+        return self.modelo
+        return self.placa
+        return self.fecha_compra
+        return self.estado
+        return self.cantidad
