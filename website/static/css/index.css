@@ -18,6 +18,10 @@ header {
     background-color: #fff6f5;
 }
 
+header a:hover {
+    color: yellow;
+}
+
 .contenedor {
     width: 100%;
     max-width: 990px;
@@ -95,11 +99,16 @@ a{
     height: 230px;
     padding: 0 20px;
     background-image: radial-gradient(circle at 50% -20.71%, #3c78f2 0, #3c78f2 50%, #3c78f2 100%);
-    color: #296291;
+    color: black;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     flex-direction: column;
+}
+
+.cuadro-info a:hover {
+    color: white;
+    background-color: black;
 }
 
 .signo-mas {
@@ -131,12 +140,14 @@ a{
     padding: 20px 0;
 }
 
+.encabezado-nosotros {
+    background: linear-gradient(to right, #0844CF 1%, #51CFA1 46%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .contenedor-nosotros {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 30px;
-    margin: 100px auto;
-    background-color: #51CFA1;
-    border-radius: 5px;
+    margin-top: 50px;
 }
 
 .nosotros-flex {
@@ -146,6 +157,19 @@ a{
     gap: 30px;
 }
 
+.footer-nosotros {
+    padding: 30px 0;
+    font-size: 20px;
+    color: #296291;
+    text-align: center;
+}
+
+.footer-nosotros a:hover {
+    background-color: #51CFA1;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
 .imagen-nosotros {
     flex-grow: 1;
 }
@@ -153,10 +177,12 @@ a{
 .texto-nosotros {
     flex-grow: 2;
     line-height: 1.5;
+    margin-top: 30px;
 }
 
 footer {
     background-color: #296291;
+    color: white;
 }
 
 .footer-section {
@@ -170,10 +196,17 @@ footer {
     text-align: center;
 }
 
-.footer-section section:first-child{
-    border-right: 1px solid;
-}
-
 .encabezado-section-footer {
     padding: 20px 0;
+}
+
+.footer-bottom {
+    padding: 30px 0;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: red;
 }

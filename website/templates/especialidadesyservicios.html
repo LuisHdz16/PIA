@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hospital Ignaz Semmelweis</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Playfair+Display+SC:wght@900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/especialidadesyservicios.css' %}">
 </head>
@@ -24,5 +24,59 @@
             </ul>
         </nav>
     </header>
+
+    <h1 style="text-align: center; margin-top: 20px;">DEPARTAMENTOS</h1>
+
+    <section class="especialidades">
+
+        
+
+        {%for departamento in departamentos%}
+
+        <div class="cuadros-especialidades">
+            <h2>{{departamento.nombre_departamento}}</h2>
+            <ul>
+                <li><b>Jefe del Departamento: </b>{{departamento.jefe_departamento}}</li>
+                <li><b>Ubicación: </b>{{departamento.ubicacion_departamento}}</li>
+                <li><b>Telefono del departamento: </b>{{departamento.telefono_departamento}}</li>
+                <li><b>Número de empleado: </b>{{departamento.numero_empleados}}</li>
+            </ul>
+        </div>
+
+        {% endfor %}
+    </section>
+    <section id="servicios">
+        <h2 style="text-align: center; margin-top: 30px;">AMBULANCIAS</h2>
+        <div class="serviciosMedicos">
+
+            {%for ambulancia in ambulancias%}
+
+            <div class="servicio">
+                <img id="Flecha" src="{% static 'imagenes/FLECHA.png' %}" alt="">
+                <h3>Modelo: {{ambulancia.modelo}}</h3>
+                <ul>
+                    <li><b>Placa: </b>{{ambulancia.placa}}</li>
+                    <li><b>Fecha compra: </b>{{ambulancia.fecha_compra}}</li>
+                    <li><b>Estado: </b>{{ambulancia.estado}}</li>
+                    <li><b>Cantidad: </b>{{ambulancia.cantidad}}</li>
+                </ul>
+            </div>
+
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <div>
+    
+            <a href="#" rel="" target="_blank">Suporte Tecnico</a>
+            <a href="#" rel="" target="_blank">Sponsors</a>
+            <a href="#" rel="" target="_blank">Practicas Profesionales</a>
+            <a href="#" rel="" target="_blank">Contactos</a>
+            <a href="#" rel="" target="_blank">Politicas de Privacdad</a>
+            <a href="#" rel="" target="_blank">Temas relacionados</a>
+            <a href="#" rel="" target="_blank">Conoce mas</a>
+        </div>
+    
+        </footer>
 </body>
 </html>
