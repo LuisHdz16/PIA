@@ -60,7 +60,9 @@ a{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    background-color: #51CFA1;
+    margin-bottom: 20px;
 }
 
 .column {
@@ -85,6 +87,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 footer {
@@ -121,4 +124,8 @@ footer {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
+}
+
+input {
+    padding: 10px 0;
 }

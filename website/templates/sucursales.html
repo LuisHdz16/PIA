@@ -24,7 +24,7 @@
                 <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
                 <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
                 <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                 <li><a href="{% url 'contacto' %}">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -61,42 +61,25 @@
 </div>
 
 <div id="contenedor-list-container">
+
+    {% for sucursal in sucursales %}
+
     <div>
 
         <div>
             <ul id="ul2">
-                <li style="color: blue;">Centro Especializado de Hemodiálisis (Santa Mónica)</li>
+                <li style="color: blue;">{{sucursal.nombre_sucursal}}</li>
             </ul>
             
             <ul id="ul2">
-                <li>Ubicación: Av. Convento de Sta Monica 121, Hab Jardines de Santa Monica, 54050 Tlalnepantla, Méx.</li>
-                <li>Teléfono: 55 5089-1410 ext. 2556</li>
+                <li>Responsable: {{sucursal.responsable_sucursal}}</li>
+                <li>Ubicación: {{sucursal.ubicacion_sucursal}}</li>
+                <li>Teléfono: {{sucursal.telefono_sucursal}}</li>
             </ul>
         </div>
     <br>
-        <div>
-            <ul id="ul3">
-                <li style="color: blue;">Centro Integral Renal.</li>
-            </ul>
-            
-            <ul id="ul3">
-                <li>Ubicación: Calzada de los Jinetes #56, Las Arboledas, Tlalnepantla de Baz, Estado de México.</li>
-                <li>Teléfono: 55 1663-2560</li>
-            </ul>
-        </div>
-    <br>
-        <div>
-            <ul id="ul4">
-                <li style="color: blue;">Centro Médico Esmeralda.</li>
-            </ul>
-            
-            <ul id="ul4">
-                <li>Ubicación: Cto. Plaza Esmeralda, Bosque Esmeralda, C.P. 52937 Cd. López Mateos, Edo. de México</li>
-                <li>Teléfono: 55 1663-2510</li>
-            </ul>
-        </div>
 
-    </div>
+    {% endfor %}
 </div>
 
 

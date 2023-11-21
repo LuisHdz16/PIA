@@ -20,7 +20,7 @@ class Sucursal(models.Model):
     responsable_sucursal = models.CharField(max_length=100)
     ubicacion_sucursal = models.CharField(max_length=100)
     telefono_sucursal = models.CharField(max_length=20)
-    horario_atencion = models.DateField()
+    horario_atencion = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre_sucursal
