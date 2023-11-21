@@ -5,23 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Playfair+Display+SC:wght@900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/especialidadesyservicios.css' %}">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1><a href="{% url 'index' %}">Hospital Ignaz Semmelweis</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
-                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
-                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                </ul>
-            </nav>
+        <div class="header-top">
+            <a href="{% url 'index' %}"><img src="static/imagenes/logo del hospital.png" alt="Logo del hospital" width="250px"></a>
+            <h2>Brindando atención médica de calidad</h2>
+            <div class="header-espacio-blanco-derecha"></div>
         </div>
+        <nav>
+            <ul id="ul1">
+                <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
+                <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 </body>
 </html>

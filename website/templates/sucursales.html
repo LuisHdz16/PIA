@@ -1,27 +1,142 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/sucursales.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{% static 'js/index.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/sucursales.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Playfair+Display+SC:wght@900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+  <title>Hospital San Juan</title>
+
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1><a href="{% url 'index' %}">Hospital Ignaz Semmelweis</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
-                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
-                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                </ul>
-            </nav>
+        <div class="header-top">
+            <a href="{% url 'index' %}"><img src="static/imagenes/logo del hospital.png" alt="Logo del hospital" width="250px"></a>
+            <h2>Brindando atención médica de calidad</h2>
+            <div class="header-espacio-blanco-derecha"></div>
         </div>
+        <nav>
+            <ul id="ul1">
+                <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
+                <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
+
+<div class="carousel-container">
+    <div class="slide">
+        <img id="cssimagen" src="static/imagenes/imagen del hospital.jpg" alt="Imagen 1">
+    </div>
+    <div class="slide">
+        <img id="cssimagen" src="static/imagenes/imagen personal 2.jpg" alt="Imagen 2">
+    </div>
+    <div class="slide">
+        <img id="cssimagen" src="static/imagenes/imagen personal.jpg" alt="Imagen 3">
+    </div>
+</div>
+
+
+<div id="divpapa">
+
+    <div>
+    <h1 id="titulocompromiso">Compromiso con su Salud.</h1>
+    </div>
+
+    <div id="contenidelcompromiso">
+    <p >En el Hospital® tenemos el compromiso de promover, mantener y restablecer la salud de nuestros pacientes mediante un trabajo médico-hospitalario, ético, eficiente y actualizado. Por ello ponemos a su disposición más de 40 especialidades que le brindarán el servicio humano y especializado que usted se merece.
+        Por ello, contamos con sucursales y clínicas de alta especialidad.</p>
+    </div>
+
+</div>
+
+
+<div>
+    <h1 id="sucursalesgeneral">SUCURSALES</h1>
+</div>
+
+<div id="contenedor-list-container">
+    <div>
+
+        <div>
+            <ul id="ul2">
+                <li style="color: blue;">Centro Especializado de Hemodiálisis (Santa Mónica)</li>
+            </ul>
+            
+            <ul id="ul2">
+                <li>Ubicación: Av. Convento de Sta Monica 121, Hab Jardines de Santa Monica, 54050 Tlalnepantla, Méx.</li>
+                <li>Teléfono: 55 5089-1410 ext. 2556</li>
+            </ul>
+        </div>
+    <br>
+        <div>
+            <ul id="ul3">
+                <li style="color: blue;">Centro Integral Renal.</li>
+            </ul>
+            
+            <ul id="ul3">
+                <li>Ubicación: Calzada de los Jinetes #56, Las Arboledas, Tlalnepantla de Baz, Estado de México.</li>
+                <li>Teléfono: 55 1663-2560</li>
+            </ul>
+        </div>
+    <br>
+        <div>
+            <ul id="ul4">
+                <li style="color: blue;">Centro Médico Esmeralda.</li>
+            </ul>
+            
+            <ul id="ul4">
+                <li>Ubicación: Cto. Plaza Esmeralda, Bosque Esmeralda, C.P. 52937 Cd. López Mateos, Edo. de México</li>
+                <li>Teléfono: 55 1663-2510</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div>
+    <div>
+        <h1 id="clinicas1">CLINICAS</h1>
+    </div>
+
+
+    <div id="controldelistas">
+        <div>
+            <ul id="lista-izq">
+                <li>Clínica de Arritmias y Marcapasos.</li>
+                <li>Clínica de Atención Integral para la Mujer.</li>
+                <li>Clínica de Catéter.</li>
+                <li>Clínica de Cirugía Plástica.</li>
+                <li>Clínica de Columna.</li>
+                <li>Clínica de Diabetes y Prediabetes.*</li>
+                <li>Centro de Diagnóstico Cardiológico.</li>
+                <li>Centro Especializado en Ortopedia.</li>
+                <li>Clínica de Fisiología Digestiva.</li>
+            </ul>
+        </div>
+    
+        <div id="lista-drc">
+            <ul>
+                <li>Clínica Geriatría.</li>
+                <li>Clínica de Ginecología Oncológica y Colposcopia.</li>
+                <li>Clínica de Hernias.</li>
+                <li>Clínica de Medicina Nuclear.</li>
+                <li>Centro Oncológico.</li>
+                <li>Clínica de Piso Pélvico y Coloproctología.</li>
+                <li>Clínica de Sobrepeso y Obesidad.</li>
+                <li>Clínica del Sueño.</li>
+                <li>Clínica de Urología.</li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
 </body>
 </html>

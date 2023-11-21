@@ -5,23 +5,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Playfair+Display+SC:wght@900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1><a href="{% url 'index' %}">Hospital Ignaz Semmelweis</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
-                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
-                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                </ul>
-            </nav>
+        <div class="header-top">
+            <a href="{% url 'index' %}"><img src="static/imagenes/logo del hospital.png" alt="Logo del hospital" width="250px"></a>
+            <h2>Brindando atención médica de calidad</h2>
+            <div class="header-espacio-blanco-derecha"></div>
         </div>
+        <nav>
+            <ul id="ul1">
+                <li><a href="{% url 'especialidadesyservicios' %}">Especialidades y Servicios</a></li>
+                <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
+    <section>
+        <div class="carousel-container">
+            <div class="slide">
+                <img id="cssimagen" src="static/imagenes/imagen del hospital.jpg" alt="Imagen 1">
+            </div>
+            <div class="slide">
+                <img id="cssimagen" src="static/imagenes/imagen personal 2.jpg" alt="Imagen 2">
+            </div>
+            <div class="slide">
+                <img id="cssimagen" src="static/imagenes/imagen personal.jpg" alt="Imagen 3">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contenedor contenedor-cuadros">
+            <div class="cuadro-info">
+                <div class="encabezado-cuadro">
+                    <h2><span class="signo-mas">+</span> 5 Sucursales</h2>
+                </div>
+                <div class="info-cuadro">
+                    <p>Tenemos sucursales en toda la republica Mexicana. Busca la sucursal mejor ubicada segun donde vivas.</p>
+                </div>
+                <div class="link-cuadro">
+                    <a href="">Saber mas</a>
+                </div>
+            </div>
+            <div class="cuadro-info">
+                
+                <div class="encabezado-cuadro">
+                    <h2><span class="signo-mas">+</span> 30 Doctores</h2>
+                </div>
+                <div class="info-cuadro">
+                    <p>Tenemos a los mejores doctores para cada departamento.</p>
+                </div>
+                <div class="link-cuadro">
+                    <a href="">Saber mas</a>
+                </div>
+                
+            </div>
+            <div class="cuadro-info">
+                
+                <div class="encabezado-cuadro">
+                    <h2>Departamentos</h2>
+                </div>
+                <div class="info-cuadro">
+                    <p>Tenemos todos los departamentos que ocupa. Busca el departamento que necesite.</p>
+                </div>
+                <div class="link-cuadro">
+                    <a href="">Saber mas</a>
+                </div>
+                
+            </div>
+            <div class="cuadro-info">
+                
+                <div class="encabezado-cuadro">
+                    <h2>Especialidades</h2>
+                </div>
+                <div class="info-cuadro">
+                    <p>Tenemos todos las especialidades que ocupa. Busca al especialidad que necesite.</p>
+                </div>
+                <div class="link-cuadro">
+                    <a href="">Saber mas</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contenedor contenedor-nosotros">
+            <div class="encabezado-nosotros">
+                <h2>Bienvenidos al Hospital Ignaz Semmelweis</h2>
+                
+            </div>
+            <div class="nosotros-flex">
+                <div class="texto-nosotros">
+                    <h3>Nosotros</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ut esse porro blanditiis, animi non natus aperiam amet ex eos ea molestiae, pariatur obcaecati illum. Dolorem molestias tempora minus hic cupiditate, temporibus sapiente vel autem inventore quaerat ab voluptatibus error quam quis, voluptate maiores numquam iusto, expedita odio qui ipsa. Corrupti ullam facere, necessitatibus maiores nihil aliquid eaque officia inventore culpa ipsum aliquam quis porro doloremque quam autem et sed quaerat possimus? Labore veritatis perferendis qui voluptatum consequuntur molestias dolores corporis possimus aspernatur, sapiente maxime sunt non, doloremque totam pariatur laudantium hic quia eum? Commodi ipsam rem nesciunt harum autem.</p>
+                </div>
+                <div class="imagen-nosotros">
+                    <img src="fotos/foto-principal.jpg" alt="" width="300px">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <div class="contenedor footer-section">
+                <section>
+                    <div class="encabezado-section-footer">
+                        <h4>Cuentas de los creadores</h4>
+                    </div>
+                    <div class="links-github">
+                        <ul>
+                            <li><a href="">luishdz16</a></li>
+                            <li><a href="">luisHerma</a></li>
+                            <li><a href="">gaelDiaz</a></li>
+                            <li><a href="">AntonioOrtega</a></li>
+                            <li><a href="">Felipe</a></li>
+                            <li><a href="">Candia</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="encabezado-section-footer">
+                        <h4>Cuentas de los creadores</h4>
+                    </div>
+                    <div class="links-github">
+                        <ul>
+                            <li><a href="">luishdz16</a></li>
+                            <li><a href="">luisHerma</a></li>
+                            <li><a href="">gaelDiaz</a></li>
+                            <li><a href="">AntonioOrtega</a></li>
+                            <li><a href="">Felipe</a></li>
+                            <li><a href="">Candia</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrihgt Derechos de  auto Hospital</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>
